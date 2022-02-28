@@ -3,11 +3,13 @@
 This is small REST API for gallery application<br />
 You are free to create your own UI using this API<br />
 
-API address is **www.api.com**
+API URL is **www.api.com**<br />
 Documentation avaliable <a href="http://localhost:7000/api/docs/" target="_blank">**here**</a><br />
 or in case of local deploy **http://localhost:7000/api/docs/**.<br />
-The demo of my own UI for this API here <a href="https://github.com/ieffai/k-cloud-client" target="_blank">**here**</a>.<br />
-And the code is <a href="https://github.com/ieffai/k-cloud-client" target="_blank">**here**</a>.<br />
+
+🚀 The demo of my own UI for this API here <a href="https://github.com/ieffai/k-cloud-client" target="_blank">**here**</a>.<br />
+
+🧐 And the code is <a href="https://github.com/ieffai/k-cloud-client" target="_blank">**here**</a>.<br />
 
 ### Local Deploy
 
