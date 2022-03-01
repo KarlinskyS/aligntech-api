@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
 import axios from "axios";
-import { ERROR_MESSAGE, IMAGES_EMPTY_MESSAGE } from "src/utils/constants";
+import { ERROR_MESSAGE, RESIZE_URL } from "src/utils/constants";
 
 @Injectable()
 export class ImagesService {
@@ -35,8 +35,16 @@ export class ImagesService {
   private async setImages() {
     const randomData = this.data.images.map((image, i) => {
       if (i < 5) {
-        const randomImage = this.getRandomImage();
+        let randomImage = this.getRandomImage();
         this.data.images = this.deletedUsed(randomImage.id);
+        const imgWidth = 900;
+        const imgHeight = 600;
+        const resizedUrl = `${RESIZE_URL}/${randomImage.id}/${imgWidth}/${imgHeight}`;
+        const thumbUrl = `${RESIZE_URL}/${randomImage.id}/${imgWidth / 3}/${
+          imgHeight / 3
+        }`;
+        randomImage.download_url = resizedUrl;
+        randomImage.thumb_url = thumbUrl;
         return randomImage;
       } else {
         return null;
@@ -46,7 +54,7 @@ export class ImagesService {
     if (images.length) {
       return images;
     } else {
-      return IMAGES_EMPTY_MESSAGE;
+      return [];
     }
   }
 
@@ -55,6 +63,16 @@ export class ImagesService {
       const isEmpty = this.data.images.length === 0;
       const isInitial = this.data.isInitial;
       isEmpty && isInitial && (await this.getInitialImages());
+      const result = await this.setImages();
+      return result;
+    } catch (error) {
+      throw new HttpException(ERROR_MESSAGE, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
+
+  async getUpdatedImages() {
+    try {
+      await this.getInitialImages();
       const result = await this.setImages();
       return result;
     } catch (error) {

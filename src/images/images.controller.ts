@@ -17,4 +17,15 @@ export class ImagesController {
   getImages() {
     return this.roleService.getImages();
   }
+
+  @ApiOperation({ summary: "Giving new random images" })
+  @ApiResponse({
+    status: 200,
+    description: "serves 5 random images",
+    type: Image,
+  })
+  @Get("/update")
+  getUpdatedImages() {
+    return this.roleService.getUpdatedImages();
+  }
 }
