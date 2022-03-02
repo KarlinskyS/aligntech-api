@@ -18,7 +18,8 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "deploy": "npm run build && scp -r ./dist/* ubuntu@ec2-63-35-195-223.eu-west-1.compute.amazonaws.com:/home/ubuntu/aligntech-api/"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
