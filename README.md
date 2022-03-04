@@ -3,8 +3,8 @@
 This is small REST API for gallery application<br />
 You are free to create your own UI using this API<br />
 
-API URL is **www.notReadyYet.com**<br />
-Documentation avaliable <a href="http://localhost:7000/api/docs/" target="_blank">**here**</a> (not work yet =))<br />
+API URL is **http://63.35.195.223**<br />
+Documentation avaliable <a href="http://63.35.195.223/api/docs/" target="_blank">**here**</a><br />
 or in case of local deploy **http://localhost:7000/api/docs/**.<br />
 
 🚀 The demo of my own UI for this API here also not deployed yet. Please, wait.....<br />
